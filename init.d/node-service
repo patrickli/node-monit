@@ -17,6 +17,7 @@ LOCAL_VAR_RUN=/var/run
 NAME=node
 DAEMON=/usr/local/bin/$NAME
 LOGFILE=/var/log/node-service.log
+NODE_ENV="development"
 
 # Read configuration variable file if it is present
 [ -r /etc/default/$INIT_SCRIPT_NAME ] && . /etc/default/$INIT_SCRIPT_NAME
@@ -53,6 +54,9 @@ SCRIPTNAME=/etc/init.d/$INIT_SCRIPT_NAME
 
 # uncomment to override system setting
 # VERBOSE=yes
+
+# export NODE_ENV for the node script
+export NODE_ENV
 
 #
 # Function that starts the daemon/service
