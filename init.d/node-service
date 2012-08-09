@@ -18,6 +18,8 @@ NAME=node
 DAEMON=/usr/local/bin/$NAME
 LOGFILE=/var/log/node-service.log
 
+# Read configuration variable file if it is present
+[ -r /etc/default/$INIT_SCRIPT_NAME ] && . /etc/default/$INIT_SCRIPT_NAME
 
 # Do NOT "set -e"
 
@@ -41,9 +43,6 @@ SCRIPTNAME=/etc/init.d/$INIT_SCRIPT_NAME
 
 # Exit if the 'run' folder is not present
 [ -d "$LOCAL_VAR_RUN" ] || { echo "Directory $LOCAL_VAR_RUN does not exist. Modify the '$INIT_SCRIPT_NAME_NOEXT' init.d script ($THIS_ARG) accordingly" >&2; exit 0; }
-
-# Read configuration variable file if it is present
-[ -r /etc/default/$INIT_SCRIPT_NAME ] && . /etc/default/$INIT_SCRIPT_NAME
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh
