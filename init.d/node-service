@@ -72,6 +72,7 @@ do_start()
 	# to handle requests from services started subsequently which depend
 	# on this one.  As a last resort, sleep for some time.
 	[ "$VERBOSE" != no ] && log_daemon_msg  "  --->  started $DESC" "$INIT_SCRIPT_NAME_NOEXT"
+	return 0
 }
 
 #
