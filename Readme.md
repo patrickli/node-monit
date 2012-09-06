@@ -17,7 +17,9 @@ We assume that node is installed as `/usr/local/bin/node` and our node service b
 
 A simple init.d script for the node-service is provided at `init.d/node-service`.
 
-You may adjust your paths at the beginning:
+The configurations are stored at `defaults/node-service`.
+
+All the variables at the top of the init.d script can be overridden in the defaults file
 
     PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
     DAEMON_ARGS="/home/node/node-service/server.js" 
@@ -27,6 +29,10 @@ You may adjust your paths at the beginning:
     NAME=node
     DAEMON=/usr/local/bin/$NAME
     LOGFILE=/var/log/node-service.log
+
+You can also specify CPU affinity with
+
+    CPU=0
 
 You can start the service with
 
